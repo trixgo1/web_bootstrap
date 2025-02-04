@@ -1,0 +1,16 @@
+body {
+    background: url('https://www.greendrive-accessories.com/blog/wp-content/uploads/2024/09/SpaceX-Makes-History-with-Polaris-Dawn.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+}
+.container {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
