@@ -5,10 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de destinos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="estilo.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-
+        body {
+            background: url('https://www.greendrive-accessories.com/blog/wp-content/uploads/2024/09/SpaceX-Makes-History-with-Polaris-Dawn.png') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+        }
         .login-card {
             background-color: rgba(0, 0, 0, 0.8);
             color: white;
@@ -29,13 +42,16 @@
         .text-center a {
             color: #00bcd4;
         }
-        #destinationImage {
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
             margin-top: 20px;
-            max-width: 100%;
-            height: 200px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+        }
+        .image-container img {
+            width: 200px;
+            height: 150px;
+            border-radius: 10px;
         }
         .extra-info {
             display: none;
@@ -55,36 +71,44 @@
             };
             const images = {
                 "Especies alienígenas": [
-                    "https://i0.wp.com/www.paolopuggioni.com/admin/wp-content/uploads/2021/03/SW_Cantina_Band-2.jpg?fit=2500%2C2273&ssl=1.jpg",
-                    "https://pm1.aminoapps.com/6918/d7f9a8386992cff6e90e54a4e7436b193b37a4a3r1-1920-1080v2_hq.jpg",
-                    "https://example.com/alien3.jpg"
+                    "https://i0.wp.com/www.paolopuggioni.com/admin/wp-content/uploads/2021/03/SW_Cantina_Band-2.jpg?ssl=1",
+                    "https://lumiere-a.akamaihd.net/v1/images/databank_tradefederation_01_169_4d5122ac.jpeg?region=0%2C49%2C1560%2C780",
+                    "https://rebellegion.com/wp-content/uploads/2014/02/GenericWookiee-01.jpg"
                 ],
                 "Estaciones espaciales": [
-                    "https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C0%2C1600%2C900.jpg",
-                    "https://example.com/station2.jpg",
-                    "https://example.com/station3.jpg"
+                    "https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C0%2C1600%2C900",
+                    "https://i.pinimg.com/736x/cf/0b/98/cf0b9854b2f37e22e1de1defcfe215e8.jpg",
+                    "https://lumiere-a.akamaihd.net/v1/images/databank_tradefederationbattleship_01_169_fc5458ce.jpeg?region=0%2C49%2C1560%2C780"
                 ],
                 "Aeropuertos terrestres": [
-                    "https://i.pinimg.com/736x/f1/4d/18/f14d18b69af6a849c3e41f6e5d61d00e.jpg",
-                    "https://example.com/airport2.jpg",
-                    "https://example.com/airport3.jpg"
+                    "https://cdna.artstation.com/p/assets/images/images/043/917/710/large/paul-wiz-johnson-hoth-echo-base-png.jpg?1638608531",
+                    "https://ftsabersite.wordpress.com/wp-content/uploads/2021/12/b6a7bf69da698a27184822ca22a6f412.jpg?w=1024",
+                    "https://www.slashfilm.com/img/gallery/how-star-wars-coruscant-became-the-planet-wide-city-of-your-nightmares/l-intro-1678905687.jpg"
                 ],
                 "Información de planetas": [
-                    "https://scc10.com.br/wp-content/uploads/2023/07/Planeta-Tatooine-Star-Wars.jpg",
                     "https://i.pinimg.com/736x/48/fe/70/48fe709e0565f5c0c872110c10133541.jpg",
+                    "https://static1.srcdn.com/wordpress/wp-content/uploads/2019/12/Tatooine-Lars-Homestead.jpg",
+                    "https://frikipolis.com/wp-content/uploads/2022/03/1OcJFCKRdBvi0lDLpA59n2bIgcsJIv_ZBnie20vquOE.jpg"
                 ]
             };
             const extraInfo = {
-                "Especies alienígenas": "Las especies alienígenas han evolucionado en distintos entornos cósmicos, desarrollando habilidades únicas.",
-                "Estaciones espaciales": "Las estaciones espaciales sirven como puntos de conexión entre distintos destinos en la galaxia.",
+                "Especies alienígenas": "Las especies alienígenas han evolucionado en distintos entornos cósmicos, desarrollando habilidades únicas. En este caso,  tenemos de izquierda a derecha: los Biths, una especie con una gran capaciadad pulmonar, por lo que son muy habilidosos con instrumentos de viento; los Neimoidianos poseen unos cerebros especialmente diseñados para el comercio y la economía; los Wookies poseen una gran fuerza física, grandes capacidades atléticas y un gran sentido de la familia y la unión.",
+                "Estaciones espaciales": "Las estaciones espaciales sirven como puntos de conexión entre distintos destinos en la galaxia. En este caso tenemos, de izquierda a derecha: la Estrella de la Muerte, estación espacial militar propiedad del Imperio; Fragata Médica, fragata propiedad de la república en la que curan a sus tropas; Estación Espacial de la Federación de Comercio, ",
                 "Aeropuertos terrestres": "Los aeropuertos terrestres permiten la conexión entre el planeta y el espacio exterior.",
                 "Información de planetas": "Los planetas del universo varían en su composición, atmósfera y posibilidad de habitabilidad."
             };
             
             let selection = document.getElementById("destinationSelect").value;
             document.getElementById("description").innerText = descriptions[selection];
-            document.getElementById("destinationImage").src = images[selection];
-            document.getElementById("destinationImage").style.display = 'block';
+            
+            let imageContainer = document.getElementById("imageContainer");
+            imageContainer.innerHTML = "";
+            images[selection].forEach(imgSrc => {
+                let img = document.createElement("img");
+                img.src = imgSrc;
+                img.alt = "Imagen de destino";
+                imageContainer.appendChild(img);
+            });
             document.getElementById("extraInfo").innerText = extraInfo[selection];
             document.getElementById("extraInfo").style.display = 'none';
         }
@@ -100,49 +124,21 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <!--  <a class="navbar-brand" href="#"Menú</a>-->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="panel-usuario.html">Panel de Usuario</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Gestión de destinos.html">Gestión de Destino</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="reservas.html">Gestión de Viajes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Historial y Reviews.html">Opiniones</a>
-                    </li>
-                </ul>
-            </div>
+    <div class="container-wrapper">
+        <div class="login-card shadow-lg">
+            <h2 class="mb-4">Gestión de destinos</h2>
+            <select id="destinationSelect" class="form-select mb-3" onchange="updateDescription()">
+                <option selected disabled>Seleccione una opción</option>
+                <option value="Especies alienígenas">Especies alienígenas</option>
+                <option value="Estaciones espaciales">Estaciones espaciales</option>
+                <option value="Aeropuertos terrestres">Aeropuertos terrestres</option>
+                <option value="Información de planetas">Información de planetas</option>
+            </select>
+            <p id="description" class="mt-3">Seleccione una opción para ver la descripción.</p>
+            <div id="imageContainer" class="image-container"></div>
+            <button class="btn btn-secondary mt-3" onclick="toggleExtraInfo()">Mostrar más</button>
+            <p id="extraInfo" class="extra-info"></p>
         </div>
-    </nav>
-    <div class="login-card shadow-lg">
-        <h2 class="mb-4">Gestión de destinos</h2>
-        <select id="destinationSelect" class="form-select mb-3" onchange="updateDescription()">
-            <option selected disabled>Seleccione una opción</option>
-            <option value="Especies alienígenas">Especies alienígenas</option>
-            <option value="Estaciones espaciales">Estaciones espaciales</option>
-            <option value="Aeropuertos terrestres">Aeropuertos terrestres</option>
-            <option value="Información de planetas">Información de planetas</option>
-        </select>
-        <p id="description" class="mt-3">Seleccione una opción para ver la descripción.</p>
-        <img id="destinationImage" src="" alt="Imagen de destino" style="display: none;" />
-        <button class="btn btn-secondary mt-3" onclick="toggleExtraInfo()">Mostrar más</button>
-        <p id="extraInfo" class="extra-info"></p>
     </div>
-    <!--  
-        "Especies alienígenas": "https://i0.wp.com/www.paolopuggioni.com/admin/wp-content/uploads/2021/03/SW_Cantina_Band-2.jpg?fit=2500%2C2273&ssl=1.jpg",
-        "Estaciones espaciales": "https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C0%2C1600%2C900.jpg",
-        "Aeropuertos terrestres": "https://i.pinimg.com/736x/f1/4d/18/f14d18b69af6a849c3e41f6e5d61d00e.jpg",
-        "Información de planetas": "https://scc10.com.br/wp-content/uploads/2023/07/Planeta-Tatooine-Star-Wars.jpg"
-    -->
 </body>
 </html>
