@@ -86,3 +86,27 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
     border-top: 1px solid #00bcd4;
 }
+.navbar {
+    background: rgba(0, 0, 0, 0.7) !important;
+}
+.navbar-nav {
+    margin: auto;
+}
+.navbar-brand {
+    font-size: 1.5rem;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
