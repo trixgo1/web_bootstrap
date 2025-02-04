@@ -14,3 +14,12 @@ body {
     height: 200px;
     object-fit: cover;
 }
+.navbar {
+    background: rgba(0, 0, 0, 0.7) !important;
+}
+.navbar-nav {
+    margin: auto;
+}
+.navbar-brand {
+    font-size: 1.5rem;
+}
