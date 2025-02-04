@@ -23,3 +23,66 @@ body {
 .navbar-brand {
     font-size: 1.5rem;
 }
+.card-custom {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    height: 100%;
+    /* Asegura que todas las tarjetas tengan el mismo tamaño */
+}
+
+.card-custom .card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Asegura que el contenido se distribuya uniformemente */
+}
+
+.btn-custom {
+    background-color: #00bcd4;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+    /* Alinea los botones al final */
+}
+
+.btn-custom:hover {
+    background-color: #0097a7;
+}
+
+.text-center a {
+    color: #00bcd4;
+}
+
+.text-center a:hover {
+    text-decoration: underline;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+    /* Asegura que el título sea visible */
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-custom ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.card-custom ul li {
+    margin-bottom: 8px;
+}
+
+.card-footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-top: 1px solid #00bcd4;
+}
